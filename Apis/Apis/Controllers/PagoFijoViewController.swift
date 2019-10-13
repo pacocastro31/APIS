@@ -21,6 +21,7 @@ class PagoFijoViewController: UIViewController {
         self.pvDate.dataSource = self
         
     }
+    
     @IBAction func savePagoFijo(_ sender: Any) {
         
     }
