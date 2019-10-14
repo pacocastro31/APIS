@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hti-zN-uBI">
-                                <rect key="frame" x="67" y="66" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="hti-zN-uBI">
+                                <rect key="frame" x="38" y="44" width="299" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingresa tu nombre!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6va-4C-npg">
@@ -36,6 +36,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Registra pagos fijos"/>
                                 <connections>
+                                    <action selector="registraPagosFijos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="60D-Mw-4PC"/>
                                     <segue destination="y7d-2V-qGD" kind="show" id="R3T-Gu-Xa8"/>
                                 </connections>
                             </button>
@@ -44,49 +45,59 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Registro" id="700-1D-ZNH"/>
+                    <connections>
+                        <outlet property="nombre" destination="6va-4C-npg" id="l6a-YU-CBj"/>
+                        <outlet property="salario" destination="z5N-sa-KZl" id="BAT-EU-n5a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="130"/>
+            <point key="canvasLocation" x="737" y="130"/>
         </scene>
-        <!--Pagos fijos-->
+        <!--Gastos fijos-->
         <scene sceneID="sOA-UH-mi4">
             <objects>
-                <viewController id="y7d-2V-qGD" sceneMemberID="viewController">
+                <viewController id="y7d-2V-qGD" customClass="GastosFijosViewController" customModule="Apis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="65y-7r-K6H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CIW-fs-7yA">
-                                <rect key="frame" x="0.0" y="44" width="375" height="517"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="555"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X16-jr-mEJ">
-                                <rect key="frame" x="154" y="587" width="67" height="30"/>
+                                <rect key="frame" x="154" y="617" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continuar"/>
+                                <connections>
+                                    <action selector="ContinuarHome:" destination="y7d-2V-qGD" eventType="touchUpInside" id="LRd-Lp-gTO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NjD-rp-09P"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Pagos fijos" id="diD-3L-qxw">
+                    <navigationItem key="navigationItem" title="Gastos fijos" id="diD-3L-qxw">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jVc-ML-Mue">
                             <connections>
                                 <segue destination="zx1-02-EQO" kind="show" id="Ovj-x7-IEK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableview" destination="CIW-fs-7yA" id="QQB-yu-Fc3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eld-pz-Hvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="130"/>
+            <point key="canvasLocation" x="1517.5999999999999" y="129.98500749625188"/>
         </scene>
-        <!--Nuevo pago fijo-->
+        <!--Nuevo gasto fijo-->
         <scene sceneID="UsK-wY-Ek8">
             <objects>
-                <viewController id="zx1-02-EQO" customClass="PagoFijoViewController" customModule="Apis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Gasto" id="zx1-02-EQO" customClass="NuevoGastoViewController" customModule="Apis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="86H-i9-uq9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +112,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descripcion" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ams-bm-8Pb">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descripción" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ams-bm-8Pb">
                                 <rect key="frame" x="77" y="230" width="220" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -115,7 +126,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cantidad" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s8S-76-FqE">
-                                <rect key="frame" x="139" y="174" width="220" height="34"/>
+                                <rect key="frame" x="78" y="164" width="220" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -124,22 +135,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KHT-TH-yU7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Nuevo pago fijo" id="4md-wD-Tj9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jii-id-Il6">
+                    <navigationItem key="navigationItem" title="Nuevo gasto fijo" id="4md-wD-Tj9">
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="jii-id-Il6">
                             <connections>
-                                <action selector="savePagoFijo:" destination="zx1-02-EQO" id="i4g-s6-EFk"/>
+                                <action selector="guardarPagoFijo:" destination="zx1-02-EQO" id="xUR-vv-rvs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cantidad" destination="s8S-76-FqE" id="Nay-db-ehk"/>
+                        <outlet property="descripcion" destination="ams-bm-8Pb" id="Bzi-mL-8Kj"/>
+                        <outlet property="diaLabel" destination="PNm-UM-7TZ" id="J2k-Mx-HXz"/>
                         <outlet property="nombre" destination="HB7-R6-QZV" id="lP6-rU-ciG"/>
                         <outlet property="pvDate" destination="Ib2-eF-alD" id="gT9-wd-LJL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlO-vP-kB6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2373.5999999999999" y="129.98500749625188"/>
+            <point key="canvasLocation" x="2292" y="130"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EOd-LE-Bzb">
@@ -160,4 +173,7 @@
             <point key="canvasLocation" x="-58.399999999999999" y="129.98500749625188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="500" height="500"/>
+    </resources>
 </document>

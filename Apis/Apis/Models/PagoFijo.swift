@@ -8,15 +8,15 @@
 
 import UIKit
 
-class PagoFijo: NSObject {
+class PagoFijo: NSObject, Codable {
     
-    var name: String!
-    var account: Double!
-    var dayToRemember: Int!
+    var nombre: String!
+    var cantidad: Double!
+    var diaARecordar: Int!
 
-    init(name: String, account: Double, dayToRemember: Int) {
-        self.name = name
-        self.account = account
-        self.dayToRemember = dayToRemember
+    init(nombre: String, cantidad: Double, diaARecordar: Int) {
+        self.nombre = nombre
+        self.cantidad = cantidad
+        self.diaARecordar = diaARecordar
     }
 }
