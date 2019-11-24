@@ -35,10 +35,27 @@ class NuevoGastoViewController: UIViewController {
             self.diaLabel.isHidden = true
         }
         
+        if self.ingreso ?? false {
+            //HACER COSAS DE LOS GASTOS
+            self.title = "Agrega ingreso"
+        }
         
+        if self.gasto ?? false {
+            self.title = "Agrega gasto"
+        }
     }
     
     @IBAction func guardarPagoFijo(_ sender: Any) {
+        if self.ingreso ?? false {
+            //guardar ingreso
+            return
+        }
+        
+        if self.gasto ?? false {
+            //guardar gasto
+            return
+        }
+        
         guard let nombre = self.nombre.text, let cantidad = self.cantidad.text else {
             //mostrar alerta
             return
