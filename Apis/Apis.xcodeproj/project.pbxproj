@@ -10,6 +10,8 @@
 		D24A94C82353E57B00426CD9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24A94C72353E57B00426CD9 /* Home.storyboard */; };
 		D24A94CA2353E97600426CD9 /* GastosFijosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A94C92353E97600426CD9 /* GastosFijosViewController.swift */; };
 		D24A94CC2353FFB600426CD9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24A94CB2353FFB600426CD9 /* HomeViewController.swift */; };
+		D2DBBD31238B334200E4448F /* Gasto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DBBD30238B334200E4448F /* Gasto.swift */; };
+		D2DBBD46238BA49300E4448F /* GastosIngresosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DBBD45238BA49300E4448F /* GastosIngresosTableViewController.swift */; };
 		D2E07EBD234CEEBA0094E7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07EBC234CEEBA0094E7EE /* AppDelegate.swift */; };
 		D2E07EBF234CEEBA0094E7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07EBE234CEEBA0094E7EE /* SceneDelegate.swift */; };
 		D2E07EC1234CEEBA0094E7EE /* IngresoInicialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07EC0234CEEBA0094E7EE /* IngresoInicialViewController.swift */; };
@@ -24,6 +26,8 @@
 		D24A94C72353E57B00426CD9 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D24A94C92353E97600426CD9 /* GastosFijosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GastosFijosViewController.swift; sourceTree = "<group>"; };
 		D24A94CB2353FFB600426CD9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D2DBBD30238B334200E4448F /* Gasto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gasto.swift; sourceTree = "<group>"; };
+		D2DBBD45238BA49300E4448F /* GastosIngresosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GastosIngresosTableViewController.swift; sourceTree = "<group>"; };
 		D2E07EB9234CEEBA0094E7EE /* Apis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E07EBC234CEEBA0094E7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2E07EBE234CEEBA0094E7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				D2E07ED0234D17E30094E7EE /* NuevoGastoViewController.swift */,
 				D24A94C92353E97600426CD9 /* GastosFijosViewController.swift */,
 				D24A94CB2353FFB600426CD9 /* HomeViewController.swift */,
+				D2DBBD45238BA49300E4448F /* GastosIngresosTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D2E07ED2234D19F40094E7EE /* PagoFijo.swift */,
+				D2DBBD30238B334200E4448F /* Gasto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,7 +179,9 @@
 				D2E07EC1234CEEBA0094E7EE /* IngresoInicialViewController.swift in Sources */,
 				D2E07ED1234D17E30094E7EE /* NuevoGastoViewController.swift in Sources */,
 				D2E07EBD234CEEBA0094E7EE /* AppDelegate.swift in Sources */,
+				D2DBBD46238BA49300E4448F /* GastosIngresosTableViewController.swift in Sources */,
 				D24A94CA2353E97600426CD9 /* GastosFijosViewController.swift in Sources */,
+				D2DBBD31238B334200E4448F /* Gasto.swift in Sources */,
 				D2E07ED3234D19F40094E7EE /* PagoFijo.swift in Sources */,
 				D24A94CC2353FFB600426CD9 /* HomeViewController.swift in Sources */,
 				D2E07EBF234CEEBA0094E7EE /* SceneDelegate.swift in Sources */,

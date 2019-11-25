@@ -16,8 +16,8 @@ class NuevoGastoViewController: UIViewController {
     @IBOutlet weak var pvDate: UIPickerView!
     
     
-      var gasto: Bool?
-      var ingreso: Bool?
+    var gasto: Bool?
+    var ingreso: Bool?
     
     @IBOutlet weak var diaLabel: UILabel!
     
@@ -45,16 +45,68 @@ class NuevoGastoViewController: UIViewController {
         }
     }
     
+    func dataFileUrl() -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let date = Date()
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .none
+        df.timeZone = .none
+        
+        if ingreso ?? false{
+            let str = df.string(from: date) + "gasto" + ".list"
+            return url.appendingPathComponent(str)
+        } else {
+            let str = df.string(from: date) + "Gasto" + ".list"
+            return url.appendingPathComponent(str)
+        }
+        
+    }
+    
+    func guardar() {
+        if ingreso ?? false{
+            var arr = self.cargar()
+            let ingreso = Gasto(nombre: self.nombre.text!, descripcion: self.descripcion.text!, cantidad: Double(self.cantidad.text!)!, ingreso: true)
+            arr.insert(ingreso, at: arr.count)
+            do {
+                let data = try PropertyListEncoder().encode(arr)
+                try data.write(to: dataFileUrl())
+            }
+            catch {
+               print("Save Failed")
+            }
+        } else if gasto ?? false{
+            var arr = self.cargar()
+            let gasto = Gasto(nombre: self.nombre.text!, descripcion: self.descripcion.text!, cantidad: Double(self.cantidad.text!)!, ingreso: false)
+            arr.insert(gasto, at: arr.count)
+            do {
+                let data = try PropertyListEncoder().encode(arr)
+                try data.write(to: dataFileUrl())
+            }
+            catch {
+               print("Save Failed")
+            }
+        }
+    }
+    
+    func cargar() -> [Gasto] {
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl())
+            let gasto = try PropertyListDecoder().decode([Gasto].self, from: data)
+            return gasto
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+        return []
+    }
+    
     @IBAction func guardarPagoFijo(_ sender: Any) {
-        if self.ingreso ?? false {
-            //guardar ingreso
+        if self.ingreso ?? false || self.gasto ?? false {
+            self.guardar()
             return
         }
         
-        if self.gasto ?? false {
-            //guardar gasto
-            return
-        }
         
         guard let nombre = self.nombre.text, let cantidad = self.cantidad.text else {
             //mostrar alerta
