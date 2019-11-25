@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func agregarIngreso(_ sender: UIBarButtonItem) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "Gasto") as! NuevoGastoViewController
+        let vc = sb.instantiateViewController(identifier: "Gastos") as! NuevoGastoViewController
         vc.ingreso = true
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.show(vc, sender: self)
@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func agregaGasto(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "Gasto") as! NuevoGastoViewController
+        let vc = sb.instantiateViewController(identifier: "Gastos") as! NuevoGastoViewController
         vc.gasto = true
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.show(vc, sender: self)
