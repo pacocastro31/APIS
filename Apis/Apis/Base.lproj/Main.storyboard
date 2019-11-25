@@ -97,8 +97,8 @@
         <!--Nuevo gasto fijo-->
         <scene sceneID="UsK-wY-Ek8">
             <objects>
-                <viewController storyboardIdentifier="Gasto" id="zx1-02-EQO" customClass="NuevoGastoViewController" customModule="Apis" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="86H-i9-uq9">
+                <viewController storyboardIdentifier="Gastos" id="zx1-02-EQO" customClass="NuevoGastoViewController" customModule="Apis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="Gastos" id="86H-i9-uq9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -126,11 +126,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cantidad" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s8S-76-FqE">
-
                                 <rect key="frame" x="77" y="171" width="220" height="34"/>
-=======
-                                <rect key="frame" x="78" y="164" width="220" height="34"/>
->>>>>>> c84a39c3ac34c65e1fd89afb1d0f966c8ea48f97
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
