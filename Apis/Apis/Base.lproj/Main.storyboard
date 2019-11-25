@@ -97,7 +97,7 @@
         <!--Nuevo gasto fijo-->
         <scene sceneID="UsK-wY-Ek8">
             <objects>
-                <viewController storyboardIdentifier="Gastos" id="zx1-02-EQO" customClass="NuevoGastoViewController" customModule="Apis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Gasto" id="zx1-02-EQO" customClass="NuevoGastoViewController" customModule="Apis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Gastos" id="86H-i9-uq9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
