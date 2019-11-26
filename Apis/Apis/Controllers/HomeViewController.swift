@@ -123,7 +123,7 @@ class HomeViewController: UIViewController {
         var cantidadADesplegar: Double!
         cantidadADesplegar = (UserDefaults.standard.value(forKey: "DineroActual")) as! Double
         cantidadADesplegar = (cantidadADesplegar/30.00)/24.00
-        cantidadParaHoy.text! = String(format: "%.3f", cantidadADesplegar)
+        cantidadParaHoy.text! = String(format: "%.2f", cantidadADesplegar)
         
     }
     
