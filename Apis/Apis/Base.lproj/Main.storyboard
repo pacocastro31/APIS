@@ -31,10 +31,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8o-ci-vyF">
-                                <rect key="frame" x="120" y="426" width="135" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingresa tu dinero actual" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FiO-Wa-QJX">
+                                <rect key="frame" x="77" y="423" width="220" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Registra pagos fijos"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8o-ci-vyF">
+                                <rect key="frame" x="118" y="506" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Registra gastos fijos"/>
                                 <connections>
                                     <action selector="registraPagosFijos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="60D-Mw-4PC"/>
                                     <segue destination="y7d-2V-qGD" kind="show" id="R3T-Gu-Xa8"/>
@@ -46,6 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registro" id="700-1D-ZNH"/>
                     <connections>
+                        <outlet property="dineroActual" destination="FiO-Wa-QJX" id="Lal-xO-DJq"/>
                         <outlet property="nombre" destination="6va-4C-npg" id="l6a-YU-CBj"/>
                         <outlet property="salario" destination="z5N-sa-KZl" id="BAT-EU-n5a"/>
                     </connections>
