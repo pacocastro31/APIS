@@ -9,11 +9,23 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+        var fecha = Date()
+       
     override func viewDidLoad() {
         super.viewDidLoad()
+        let loc = Locale(identifier: "es_MX")
+        self.datePickerOutlet.locale = loc
+    }
+    
+    
+    @IBOutlet weak var datePickerOutlet: UIDatePicker!
+    
+    
+    @IBAction func datePicker(_ sender: UIDatePicker) {
+        fecha = sender.date
         
     }
+    
     
     @IBAction func agregarIngreso(_ sender: UIBarButtonItem) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
