@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         let loc = Locale(identifier: "es_MX")
         self.datePickerOutlet.locale = loc
+        calcularTotales()
     }
     
     
@@ -115,6 +116,15 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let va = segue.destination as! GastosIngresosTableViewController
             va.fecha=fecha
+    }
+    
+    
+    func calcularTotales(){
+        var cantidadADesplegar: Double!
+        cantidadADesplegar = (UserDefaults.standard.value(forKey: "DineroActual")) as! Double
+        cantidadADesplegar = (cantidadADesplegar/30.00)/24.00
+        cantidadParaHoy.text! = String(format: "%.3f", cantidadADesplegar)
+        
     }
     
     

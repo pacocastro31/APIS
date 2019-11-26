@@ -37,5 +37,7 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(nombre, forKey: "Nombre")
         UserDefaults.standard.set(dineroActual, forKey: "DineroActual")
     }
+    
+    
 }
 
