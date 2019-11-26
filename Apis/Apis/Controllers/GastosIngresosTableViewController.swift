@@ -41,6 +41,8 @@ class GastosIngresosTableViewController: UITableViewController {
     }
     
     
+   
+    
     func cargar(){
         do {
             var data = try Data.init(contentsOf: dataFileUrl(boolIngreso: true))
@@ -72,8 +74,18 @@ class GastosIngresosTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = movimientos[indexPath.row].nombre
         cell.detailTextLabel?.text = String(movimientos[indexPath.row].cantidad)
-        return cell
-    }
+    
+        if(movimientos[indexPath.row].ingreso){
+            cell.detailTextLabel?.textColor = .green
+        }
+            else {
+              cell.detailTextLabel?.textColor = .red
+            }
+           return cell
+        }
+        
+          
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! EditViewController
