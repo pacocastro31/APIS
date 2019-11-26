@@ -9,41 +9,53 @@
 import UIKit
 
 class GastosIngresosTableViewController: UITableViewController {
-    
+    var fecha = Date()
+
     var movimientos: [Gasto]!
     var ingreso: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.movimientos = cargar(str: "ingreso")
-        for i in cargar(str: "gasto"){
-            self.movimientos.append(i)
-        }
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "MM/dd/yyyy"
+        self.title = dateformat.string(from: fecha)
+        cargar()
         self.tableView.reloadData()
     }
 
-    func dataFileUrl(str: String) -> URL {
+    func dataFileUrl(boolIngreso: Bool) -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-        let date = Date()
+      
         let df = DateFormatter()
         df.dateFormat = "ddMMyy"
+        df.dateFormat = "ddMMyy"
+        let str2 = df.string(from: fecha)
+        var str = ""
+        if boolIngreso{
+            str = str2 + "ingreso" + ".plist"
+        } else {
+            str = str2 + "gasto" + ".plist"
+        }
         
-        let pathArchivo = url.appendingPathComponent(df.string(from: date) + str + ".list")
-        return pathArchivo
+        return url.appendingPathComponent(str)
     }
     
     
-    func cargar(str: String) -> [Gasto] {
+    func cargar(){
         do {
-            let data = try Data.init(contentsOf: dataFileUrl(str: str))
-            let gasto = try PropertyListDecoder().decode([Gasto].self, from: data)
-            return gasto
+            var data = try Data.init(contentsOf: dataFileUrl(boolIngreso: true))
+            movimientos = try PropertyListDecoder().decode([Gasto].self, from: data)
+            data = try Data.init(contentsOf: dataFileUrl(boolIngreso: false))
+            for i in try PropertyListDecoder().decode([Gasto].self, from: data){
+                
+                movimientos.append(i)
+            }
+            
+            
         }
         catch {
             print("Error reading or decoding file")
         }
-        return []
     }
     
     // MARK: - Table view data source
@@ -64,4 +76,12 @@ class GastosIngresosTableViewController: UITableViewController {
         cell.detailTextLabel?.text = String(movimientos[indexPath.row].cantidad)
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! EditViewController
+        vc.fecha=fecha
+    }
 }
+
+
+

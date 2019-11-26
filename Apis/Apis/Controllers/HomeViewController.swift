@@ -112,6 +112,11 @@ class HomeViewController: UIViewController {
             print("Error reading or decoding file")
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let va = segue.destination as! GastosIngresosTableViewController
+            va.fecha=fecha
+    }
+    
     
 }
 
