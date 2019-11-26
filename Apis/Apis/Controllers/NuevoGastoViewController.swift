@@ -54,10 +54,10 @@ class NuevoGastoViewController: UIViewController {
         df.timeZone = .none
         
         if ingreso ?? false{
-            let str = df.string(from: date) + "gasto" + ".list"
+            let str = df.string(from: date) + "ingreso" + ".plist"
             return url.appendingPathComponent(str)
         } else {
-            let str = df.string(from: date) + "Gasto" + ".list"
+            let str = df.string(from: date) + "gasto" + ".plist"
             return url.appendingPathComponent(str)
         }
         
@@ -106,7 +106,6 @@ class NuevoGastoViewController: UIViewController {
             self.guardar()
             return
         }
-        
         
         guard let nombre = self.nombre.text, let cantidad = self.cantidad.text else {
             //mostrar alerta
