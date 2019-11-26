@@ -11,6 +11,10 @@ import UIKit
 class HomeViewController: UIViewController {
         var fecha = Date()
        
+    
+    var movimiento: [Gasto] = []
+    var boolIngreso: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let loc = Locale(identifier: "es_MX")
@@ -50,6 +54,7 @@ class HomeViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "Gastos") as! NuevoGastoViewController
         vc.ingreso = true
+        vc.delegadoHome = self
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.show(vc, sender: self)
     }
@@ -58,6 +63,7 @@ class HomeViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "Gastos") as! NuevoGastoViewController
         vc.gasto = true
+        vc.delegadoHome = self
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.show(vc, sender: self)
     }
@@ -65,10 +71,55 @@ class HomeViewController: UIViewController {
     
     @IBAction func btSettings(_ sender: UIBarButtonItem) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-               let vc = sb.instantiateViewController(identifier: "PantallaPrincipal") as! ViewController
-               vc.modalPresentationStyle = .fullScreen
-               self.navigationController?.show(vc, sender: self)
+        let vc = sb.instantiateViewController(identifier: "PantallaPrincipal") as! ViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.show(vc, sender: self)
         
     }
     
+    func dataFileUrl() -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "ddMMyy"
+        let str2 = df.string(from: date)
+        var str = ""
+        if boolIngreso {
+            str = str2 + "ingreso" + ".plist"
+        } else {
+            str = str2 + "gasto" + ".plist"
+        }
+        
+        return url.appendingPathComponent(str)
+    }
+    
+    func guardar() {
+        do {
+            let data = try PropertyListEncoder().encode(self.movimiento)
+            try data.write(to: dataFileUrl())
+        }
+        catch {
+            print("Save Failed")
+        }
+    }
+    
+    func cargar() {
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl())
+            self.movimiento = try PropertyListDecoder().decode([Gasto].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+    }
+    
+}
+
+extension HomeViewController: Movimiento{
+    func agregaMovimiento(gasto: Gasto, boolIngreso: Bool) {
+        boolIngreso = boolIngreso
+        self.cargar()
+        movimiento.append(gasto)
+        guardar()
+    }
 }

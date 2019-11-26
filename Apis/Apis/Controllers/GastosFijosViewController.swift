@@ -51,7 +51,7 @@ class GastosFijosViewController: UIViewController{
     func guardar() {
         do {
             let data = try PropertyListEncoder().encode(self.pagosFijosLista)
-           try data.write(to: dataFileUrl())
+            try data.write(to: dataFileUrl())
         }
         catch {
            print("Save Failed")

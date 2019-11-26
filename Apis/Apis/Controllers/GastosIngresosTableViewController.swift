@@ -27,9 +27,7 @@ class GastosIngresosTableViewController: UITableViewController {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let date = Date()
         let df = DateFormatter()
-        df.dateStyle = .short
-        df.timeStyle = .none
-        df.timeZone = .none
+        df.dateFormat = "ddMMyy"
         
         let pathArchivo = url.appendingPathComponent(df.string(from: date) + str + ".list")
         return pathArchivo
