@@ -11,7 +11,7 @@ import UIKit
 class GastosIngresosTableViewController: UITableViewController {
     var fecha = Date()
 
-    var movimientos: [Gasto]!
+    var movimientos: [Gasto] = []
     var ingreso: Bool = false
 
     override func viewDidLoad() {
