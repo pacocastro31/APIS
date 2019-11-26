@@ -15,6 +15,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var tfCantidad: UITextField!
     @IBOutlet weak var tfDescripcion: UITextView!
     
+    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var btEdit: UIBarButtonItem!
     var fecha = Date()
     var boolEdit = false
@@ -24,10 +25,10 @@ class EditViewController: UIViewController {
     
     override func viewDidLoad() {
           super.viewDidLoad()
-      
+        lblDate.text = movMostrar.strDate
         tfNombre.text=String(movMostrar.nombre)
         tfCantidad.text=String(movMostrar.cantidad)
-        tfDescripcion.text=String(movMostrar.description)
+        tfDescripcion.text=String(movMostrar.descripcion ?? "")
         
       }
       

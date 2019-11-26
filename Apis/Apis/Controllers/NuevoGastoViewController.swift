@@ -53,7 +53,11 @@ class NuevoGastoViewController: UIViewController {
             if ingreso ?? false {
                 bool = true
             }
-            let mov = Gasto(nombre: self.nombre.text!, descripcion: self.descripcion.text!, cantidad: Double(self.cantidad.text!)!, ingreso: bool )
+            let df = DateFormatter()
+            df.locale = Locale(identifier: "es_MX")
+            df.dateStyle = .long
+            df.timeStyle = .short
+            let mov = Gasto(nombre: self.nombre.text!, descripcion: self.descripcion.text!, cantidad: Double(self.cantidad.text!)!, ingreso: bool, strDate: df.string(from: Date()) )
             
             self.delegadoHome.agregaMovimiento(gasto: mov, boolIngreso: bool)
             self.navigationController?.popViewController(animated: true)

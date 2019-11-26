@@ -50,8 +50,6 @@ class GastosIngresosTableViewController: UITableViewController {
                 
                 movimientos.append(i)
             }
-            
-            
         }
         catch {
             print("Error reading or decoding file")
