@@ -29,6 +29,8 @@ class GastosFijosViewController: UIViewController{
     @IBAction func ContinuarHome(_ sender: UIButton) {
         self.guardar()
         
+        UserDefaults.standard.setValue(true, forKey: "primeraPantalla")
+        
         let sb = UIStoryboard(name: "Home", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "Home")
         vc.modalPresentationStyle = .fullScreen

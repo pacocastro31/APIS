@@ -30,4 +30,14 @@ class HomeViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.show(vc, sender: self)
     }
+    
+    
+    @IBAction func btSettings(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+               let vc = sb.instantiateViewController(identifier: "PantallaPrincipal") as! ViewController
+               vc.modalPresentationStyle = .fullScreen
+               self.navigationController?.show(vc, sender: self)
+        
+    }
+    
 }
