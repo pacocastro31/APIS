@@ -122,7 +122,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: Movimiento{
     func agregaMovimiento(gasto: Gasto, boolIngreso: Bool) {
-        boolIngreso = boolIngreso
+        self.boolIngreso = boolIngreso
         self.cargar()
         movimiento.append(gasto)
         guardar()
