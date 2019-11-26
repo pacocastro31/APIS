@@ -80,7 +80,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="20B-vL-18w"/>
                     <connections>
+                        <outlet property="cantidadParaHoy" destination="q8v-uC-0Mi" id="uWG-c2-TdG"/>
                         <outlet property="datePickerOutlet" destination="6fI-44-arw" id="4hg-OZ-eq8"/>
+                        <outlet property="fondoImagen" destination="euo-Cz-uRj" id="BGg-OG-T4I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5H-so-eR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

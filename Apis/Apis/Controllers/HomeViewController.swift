@@ -23,8 +23,25 @@ class HomeViewController: UIViewController {
     
     @IBAction func datePicker(_ sender: UIDatePicker) {
         fecha = sender.date
+        let df = DateFormatter()
+        df.dateStyle = .long
+        df.timeStyle = .none
+        
+        if( df.string(from: fecha) != df.string(from: Date())){
+            fondoImagen.isHidden=true
+            cantidadParaHoy.isHidden=true
+        }
+        else{
+            fondoImagen.isHidden=false
+            cantidadParaHoy.isHidden=false
+        }
         
     }
+    
+    
+    @IBOutlet weak var fondoImagen: UIImageView!
+    @IBOutlet weak var cantidadParaHoy: UILabel!
+    
     
     
     @IBAction func agregarIngreso(_ sender: UIBarButtonItem) {
