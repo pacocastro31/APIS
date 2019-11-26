@@ -30,10 +30,12 @@ class HomeViewController: UIViewController {
         if( df.string(from: fecha) != df.string(from: Date())){
             fondoImagen.isHidden=true
             cantidadParaHoy.isHidden=true
+            labelCantidad.isHidden=true
         }
         else{
             fondoImagen.isHidden=false
             cantidadParaHoy.isHidden=false
+            labelCantidad.isHidden=false
         }
         
     }
@@ -41,7 +43,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var fondoImagen: UIImageView!
     @IBOutlet weak var cantidadParaHoy: UILabel!
-    
+    @IBOutlet weak var labelCantidad: UILabel!
     
     
     @IBAction func agregarIngreso(_ sender: UIBarButtonItem) {

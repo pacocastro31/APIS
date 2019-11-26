@@ -20,6 +20,7 @@
 		D2E07EC9234CEEBD0094E7EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E07EC7234CEEBD0094E7EE /* LaunchScreen.storyboard */; };
 		D2E07ED1234D17E30094E7EE /* NuevoGastoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07ED0234D17E30094E7EE /* NuevoGastoViewController.swift */; };
 		D2E07ED3234D19F40094E7EE /* PagoFijo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E07ED2234D19F40094E7EE /* PagoFijo.swift */; };
+		E5D24EC8238CF2EB0052A018 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D24EC7238CF2EB0052A018 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D2E07ECA234CEEBD0094E7EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2E07ED0234D17E30094E7EE /* NuevoGastoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevoGastoViewController.swift; sourceTree = "<group>"; };
 		D2E07ED2234D19F40094E7EE /* PagoFijo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagoFijo.swift; sourceTree = "<group>"; };
+		E5D24EC7238CF2EB0052A018 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditViewController.swift; path = Controllers/EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				D2E07EBE234CEEBA0094E7EE /* SceneDelegate.swift */,
 				D2E07EC2234CEEBA0094E7EE /* Main.storyboard */,
 				D24A94C72353E57B00426CD9 /* Home.storyboard */,
+				E5D24EC7238CF2EB0052A018 /* EditViewController.swift */,
 				D2E07EC5234CEEBD0094E7EE /* Assets.xcassets */,
 				D2E07EC7234CEEBD0094E7EE /* LaunchScreen.storyboard */,
 				D2E07ECA234CEEBD0094E7EE /* Info.plist */,
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D24EC8238CF2EB0052A018 /* EditViewController.swift in Sources */,
 				D2E07EC1234CEEBA0094E7EE /* IngresoInicialViewController.swift in Sources */,
 				D2E07ED1234D17E30094E7EE /* NuevoGastoViewController.swift in Sources */,
 				D2E07EBD234CEEBA0094E7EE /* AppDelegate.swift in Sources */,
