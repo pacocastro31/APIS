@@ -19,6 +19,18 @@ class EditViewController: UIViewController {
     var fecha = Date()
     var boolEdit = false
     var arr: [Gasto] = []
+    var movMostrar: Gasto!
+    
+    
+    override func viewDidLoad() {
+          super.viewDidLoad()
+      
+        tfNombre.text=String(movMostrar.nombre)
+        tfCantidad.text=String(movMostrar.cantidad)
+        tfDescripcion.text=String(movMostrar.description)
+        
+      }
+      
     
         func dataFileUrl() -> URL {
           let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -42,15 +54,13 @@ class EditViewController: UIViewController {
          tfCantidad.isEnabled=true
          tfDescripcion.isEditable=true
         let item = self.navigationItem.rightBarButtonItem!
-        let button = item.customView as! UIButton
-        button.setTitle("Save", for: .normal)
+            item.title = "Save"
         } else {
             tfNombre.isEnabled=false
             tfCantidad.isEnabled=false
             tfDescripcion.isEditable=false
             let item = self.navigationItem.rightBarButtonItem!
-            let button = item.customView as! UIButton
-            button.setTitle("Edit", for: .normal)
+            item.title = "Edit"
             
             //algo para guardar el cambio
             do {
@@ -77,12 +87,7 @@ class EditViewController: UIViewController {
               }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        // Do any additional setup after loading the view.
-    }
-    
+  
     
     
     

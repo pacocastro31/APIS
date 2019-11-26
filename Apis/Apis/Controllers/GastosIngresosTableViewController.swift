@@ -80,6 +80,8 @@ class GastosIngresosTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! EditViewController
         vc.fecha=fecha
+        vc.movMostrar = self.movimientos[self.tableView.indexPathForSelectedRow!.row]
+    
     }
 }
 

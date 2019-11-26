@@ -198,7 +198,7 @@
                         <viewLayoutGuide key="safeArea" id="0rV-I4-qWn"/>
                     </view>
                     <navigationItem key="navigationItem" id="17D-h0-rtz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="lSx-OJ-Qld">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="lSx-OJ-Qld">
                             <connections>
                                 <action selector="clickEdit:" destination="Cn2-5b-O2q" id="Ean-3H-Krj"/>
                             </connections>
