@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     var movimiento: [Gasto] = []
     var boolIngreso: Bool = false
+    var auxCambioDinero: Double = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,8 +122,16 @@ class HomeViewController: UIViewController {
     
     func calcularTotales(){
         var cantidadADesplegar: Double!
-        cantidadADesplegar = (UserDefaults.standard.value(forKey: "DineroActual")) as! Double
-        cantidadADesplegar = (cantidadADesplegar/30.00)/24.00
+        
+        guard let dineroActual = UserDefaults.standard.value(forKey: "DineroActual") else {
+            cantidadParaHoy.text! = "0"
+            return
+        }
+        cantidadADesplegar = (dineroActual as! Double)
+        
+        cantidadADesplegar += self.auxCambioDinero
+        UserDefaults.standard.set(cantidadADesplegar, forKey: "DineroActual")
+        self.auxCambioDinero = 0
         cantidadParaHoy.text! = String(format: "%.2f", cantidadADesplegar)
         
     }
@@ -136,5 +145,13 @@ extension HomeViewController: Movimiento{
         self.cargar()
         movimiento.append(gasto)
         guardar()
+        
+        if boolIngreso {
+            auxCambioDinero += gasto.cantidad
+        } else {
+            auxCambioDinero -= gasto.cantidad
+        }
+        
+        calcularTotales()
     }
 }

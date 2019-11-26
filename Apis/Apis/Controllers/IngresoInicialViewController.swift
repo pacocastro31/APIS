@@ -23,6 +23,9 @@ class ViewController: UIViewController {
             self.dineroActual.text = "\(dineroActual)"
 
             }
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         }
         
     
@@ -36,8 +39,12 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(salario, forKey: "Salario")
         UserDefaults.standard.set(nombre, forKey: "Nombre")
         UserDefaults.standard.set(dineroActual, forKey: "DineroActual")
+        
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
 }
 

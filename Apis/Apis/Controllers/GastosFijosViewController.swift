@@ -35,6 +35,13 @@ class GastosFijosViewController: UIViewController{
         let vc = sb.instantiateViewController(identifier: "Home")
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.present(vc, animated: true, completion: nil)
+        
+        guard let dineroActual = UserDefaults.standard.value(forKey: "DineroActual") else {
+            return
+        }
+       let cantidadADesplegar = (dineroActual as! Double)
+        
+        UserDefaults.standard.set(cantidadADesplegar/30, forKey: "DineroActual")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,6 +93,13 @@ extension GastosFijosViewController: UITableViewDataSource, UITableViewDelegate 
 extension GastosFijosViewController: PagoFijoProtocol {
     func guardarPago(pagoFijo: PagoFijo) {
         self.pagosFijosLista.append(pagoFijo)
+        
+        guard let dineroActual = UserDefaults.standard.value(forKey: "DineroActual") else {
+            return
+        }
+        
+       let db = dineroActual as! Double
+        UserDefaults.standard.set(db-pagoFijo.cantidad!, forKey: "DineroActual")
         self.tableview.reloadData()
     }
 }

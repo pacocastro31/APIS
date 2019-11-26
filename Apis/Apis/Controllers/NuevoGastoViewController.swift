@@ -44,8 +44,16 @@ class NuevoGastoViewController: UIViewController {
         if self.gasto ?? false {
             self.title = "Agrega gasto"
         }
+        
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        view.addGestureRecognizer(tap)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     @IBAction func guardarPagoFijo(_ sender: Any) {
         if self.ingreso ?? false || self.gasto ?? false {

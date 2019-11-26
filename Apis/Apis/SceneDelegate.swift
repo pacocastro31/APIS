@@ -14,7 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if UserDefaults.standard.value(forKey: "primeraPantalla") == nil{
+        
+        if UserDefaults.standard.value(forKey: "primeraPantalla") != nil{
             let sb = UIStoryboard(name: "Home", bundle: nil)
             let vc = sb.instantiateViewController(identifier: "Home")
             self.window?.rootViewController = vc
@@ -23,6 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let vc = sb.instantiateViewController(identifier: "Main")
             self.window?.rootViewController = vc
         }
+        
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
